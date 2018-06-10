@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/../../ActionBar-PullToRefresh" />
+        <option name="gradleHome" value="/usr/local/Cellar/gradle/4.6/libexec" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/../../ActionBar-PullToRefresh" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="LOCAL" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/../../ActionBar-PullToRefresh/library" />
+        <option name="gradleHome" value="/usr/local/Cellar/gradle/4.6/libexec" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/../../ActionBar-PullToRefresh/library" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/../../SmoothProgressBar" />
+        <option name="gradleHome" value="/usr/local/Cellar/gradle/4.6/libexec" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/../../SmoothProgressBar" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="LOCAL" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/../../SmoothProgressBar/library-circular" />
+        <option name="gradleHome" value="/usr/local/Cellar/gradle/4.6/libexec" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/../../SmoothProgressBar/library-circular" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

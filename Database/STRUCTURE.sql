@@ -9,7 +9,7 @@ CREATE TABLE `comments` (
   `deleted` tinyint(1) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `selection` (`message_id`,`time_inserted`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 -- 
 CREATE TABLE `connections` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -20,7 +20,7 @@ CREATE TABLE `connections` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `combination` (`from_user`,`to_user`),
   KEY `selection` (`to_user`,`type`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 -- 
 CREATE TABLE `favorites` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -31,7 +31,7 @@ CREATE TABLE `favorites` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `combination` (`user_id`,`message_id`),
   KEY `selection` (`user_id`,`time_added`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 -- 
 CREATE TABLE `feeds` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -40,7 +40,7 @@ CREATE TABLE `feeds` (
   `degree` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `combination` (`user_id`,`message_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 -- 
 CREATE TABLE `ids_in_threads` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -50,7 +50,7 @@ CREATE TABLE `ids_in_threads` (
   `public_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `combination` (`content_type`,`content_id`,`private_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 -- 
 CREATE TABLE `messages` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -67,7 +67,7 @@ CREATE TABLE `messages` (
   `country_iso3` varchar(3) DEFAULT NULL,
   `geo_lat` float DEFAULT NULL,
   `geo_long` float DEFAULT NULL,
-  `topic` enum('','politics','art','business','work','culture','health','science','sports','technology','sex','dating','beauty','books','movies','music','family','food','life','love','confessions','dreams','fantasy','friendship','funny','games','hobbies','money','party','philosophy','quotes','school','stories','studies','travel','meta') NOT NULL DEFAULT '',
+  `topic` varchar(32) NOT NULL DEFAULT '',
   `score` decimal(8,6) unsigned NOT NULL DEFAULT '0.000000',
   `dispatched` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `deleted` tinyint(1) unsigned NOT NULL DEFAULT '0',
@@ -78,7 +78,7 @@ CREATE TABLE `messages` (
   KEY `latest_by_language` (`language_iso3`,`time_published`),
   KEY `time_active` (`time_active`),
   KEY `latest_by_location` (`geo_lat`,`geo_long`,`time_published`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 -- 
 CREATE TABLE `reports` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -92,7 +92,7 @@ CREATE TABLE `reports` (
   UNIQUE KEY `combination` (`user_id`,`content_type`,`content_id`),
   KEY `selection_by_user` (`user_id`,`time_reported`),
   KEY `selection_by_content` (`content_type`,`content_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 -- 
 CREATE TABLE `subscriptions` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -104,7 +104,7 @@ CREATE TABLE `subscriptions` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `combination` (`message_id`,`user_id`),
   KEY `selection` (`user_id`,`counter`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 -- 
 CREATE TABLE `throttling` (
   `username` varchar(255) NOT NULL,
@@ -112,7 +112,7 @@ CREATE TABLE `throttling` (
   `action_type` enum('failed_login') NOT NULL,
   `action_count` smallint(8) unsigned NOT NULL DEFAULT '1',
   PRIMARY KEY (`username`,`date_str`,`action_type`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 -- 
 CREATE TABLE `users` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -126,7 +126,7 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`),
   KEY `login` (`username`(166),`password`(166))
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 -- 
 CREATE TABLE `verifications` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -138,4 +138,4 @@ CREATE TABLE `verifications` (
   PRIMARY KEY (`id`),
   KEY `selection_by_user` (`user_id`,`time_until`),
   KEY `selection_by_code` (`verification_code`,`time_until`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
